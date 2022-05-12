@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import Iproduct from 'src/app/interface/products';
 
 @Component({
     selector: 'app-products',
@@ -6,13 +8,28 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-    products = [
-        { id: 1, image: "https://source.unsplash.com/random", price: 200 },
-        { id: 2, image: "https://source.unsplash.com/random", price: 200 },
+    private products: Array<Iproduct> = [
+        { id: 1, image: "https://source.unsplash.com/random", price: 200, status: true },
+        { id: 2, image: "https://source.unsplash.com/random", price: 200, status: false },
+        { id: 3, image: "https://source.unsplash.com/random", price: 200, status: true },
+        { id: 4, image: "https://source.unsplash.com/random", price: 200, status: true },
+        { id: 5, image: "https://source.unsplash.com/random", price: 200, status: false },
     ]
+    productClone = [...this.products]
+    isAdd = false
+
     constructor() { }
 
     ngOnInit(): void {
+    }
+    handleRemove(id: number) {
+        this.productClone = this.productClone.filter(item => item.id != id)
+    }
+    onSubmit(fromProduct: NgForm) {
+        this.productClone.push(fromProduct.value)
+    }
+    show() {
+        this.isAdd = !this.isAdd
     }
 
 }

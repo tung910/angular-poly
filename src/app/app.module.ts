@@ -8,6 +8,8 @@ import { ProductsComponent } from './pages/products/products.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AdminComponent } from './components/layouts/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
+import { DetailsComponent } from './pages/details/details.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -17,10 +19,12 @@ import { HeaderComponent } from './components/header/header.component';
         HomeComponent,
         AdminComponent,
         HeaderComponent,
+        DetailsComponent,
     ],
     imports: [
         BrowserModule,
-        AppRoutingModule
+        AppRoutingModule,
+        FormsModule
     ],
     providers: [],
     bootstrap: [AppComponent]
