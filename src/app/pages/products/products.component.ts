@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
         { id: 5, image: "https://source.unsplash.com/random", price: 200, status: false },
     ]
     productClone = [...this.products]
+    product: any
     isAdd = false
 
     constructor() { }
@@ -25,8 +26,11 @@ export class ProductsComponent implements OnInit {
     handleRemove(id: number) {
         this.productClone = this.productClone.filter(item => item.id != id)
     }
-    onSubmit(fromProduct: NgForm) {
-        this.productClone.push(fromProduct.value)
+    handleView(product: any) {
+        this.product = product
+    }
+    onSubmit(fromProduct: Iproduct) {
+        this.productClone.push(fromProduct)
     }
     show() {
         this.isAdd = !this.isAdd

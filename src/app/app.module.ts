@@ -10,6 +10,8 @@ import { AdminComponent } from './components/layouts/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DetailsComponent } from './pages/details/details.component';
 import { FormsModule } from '@angular/forms';
+import { ProductItemComponent } from './components/product-item/product-item.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 @NgModule({
     declarations: [
@@ -20,6 +22,8 @@ import { FormsModule } from '@angular/forms';
         AdminComponent,
         HeaderComponent,
         DetailsComponent,
+        ProductItemComponent,
+        AddProductComponent,
     ],
     imports: [
         BrowserModule,

@@ -1,0 +1,60 @@
+<div class="modal fade show" role="dialog" style="display: block">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button class="close" (click)="show()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form
+          #fromProduct="ngForm"
+          (ngSubmit)="addItem(fromProduct)"
+          novalidate
+        >
+          <div class="form-group">
+            <label for="exampleInputEmail1">Id</label>
+            <input type="text" class="form-control" ngModel #image="ngModel" />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputEmail1">image</label>
+            <input
+              type="text"
+              ngModel
+              class="form-control"
+              name="image"
+              #image="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">status</label>
+            <input
+              type="text"
+              ngModel
+              class="form-control"
+              name="status"
+              #status="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">price</label>
+            <input
+              type="text"
+              ngModel
+              class="form-control"
+              name="price"
+              #price="ngModel"
+            />
+          </div>
+          <button class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button (click)="show()" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
