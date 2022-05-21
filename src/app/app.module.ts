@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -9,7 +11,6 @@ import { HomeComponent } from './pages/home/home.component';
 import { AdminComponent } from './components/layouts/admin/admin.component';
 import { HeaderComponent } from './components/header/header.component';
 import { DetailsComponent } from './pages/details/details.component';
-import { FormsModule } from '@angular/forms';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 
@@ -28,7 +29,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
     imports: [
         BrowserModule,
         AppRoutingModule,
-        FormsModule
+        FormsModule,
+        HttpClientModule
     ],
     providers: [],
     bootstrap: [AppComponent]

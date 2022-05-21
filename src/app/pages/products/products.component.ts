@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
+import { ProductsService } from '../../services/products.service'
 import Iproduct from 'src/app/interface/products';
 
 @Component({
@@ -19,9 +19,12 @@ export class ProductsComponent implements OnInit {
     product: any
     isAdd = false
 
-    constructor() { }
+    constructor(private productService: ProductsService) { }
 
     ngOnInit(): void {
+        this.productService.getProduct().subscribe((data) => {
+            console.log(data)
+        })
     }
     handleRemove(id: number) {
         this.productClone = this.productClone.filter(item => item.id != id)

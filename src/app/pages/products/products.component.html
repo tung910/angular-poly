@@ -18,11 +18,12 @@
       <td>
         <div (click)="handleRemove(item.id)" class="btn btn-danger">Remove</div>
         <div (click)="handleView(item)" class="btn btn-primary">View</div>
+        <a routerLink="/details/{{ item.id }}">Details</a>
       </td>
     </tr>
   </tbody>
 </table>
-<app-add-product [show]="show()" (newItem)="onSubmit($event)"></app-add-product>
+<!-- <app-add-product [show]="show()" (newItem)="onSubmit($event)"></app-add-product> -->
 <div *ngIf="product">
   <app-product-item [data]="product"></app-product-item>
 </div>
