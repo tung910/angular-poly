@@ -6,21 +6,30 @@ import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.compon
 import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
 import { ManagerQuestionComponent } from './pages/admin/manager-question/manager-question.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
+import { QuestionPageComponent } from './pages/question-page/question-page.component';
+import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.component';
+import { AuthGuard } from './utils/auth.guard';
+import { RoleGuard } from './utils/role.guard';
 
 const routes: Routes = [
     {
         path: '', component: LayoutPublicComponent, children: [
-            { path: '', component: HomePageComponent }
+            { path: '', component: HomePageComponent, },
+            {
+                path: 'question', component: QuestionPageComponent, children: [
+                    { path: ':id', component: QuestionPageComponent, },
+                ],
+            },
         ],
 
     },
     {
-        path: 'admin', component: DashboardComponent, children: [
+        path: 'admin', component: DashboardComponent, canActivate: [AuthGuard, RoleGuard], children: [
             {
                 path: '', component: DashboardComponentPage
             },
             {
-                path: 'questions', component: ManagerQuestionComponent
+                path: 'question', component: ManagerQuestionComponent,
             },
             {
                 path: 'customers', component: ManagerCustomerComponent

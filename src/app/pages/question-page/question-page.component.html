@@ -1,0 +1,20 @@
+<div
+  class="d-flex flex-row mb-3 justify-content-evenly align-items-center flex-wrap"
+>
+  <div class="card" *ngFor="let subject of subjects" style="width: 18rem">
+    <img
+      src="{{ subject.icon }}"
+      class="card-img-top"
+      alt="{{ subject.name }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ subject.name }}</h5>
+      <p class="card-text">
+        Some quick example text to build on the card title and make up the bulk
+        of the card's content.
+      </p>
+      <a routerLink="{{ subject.id }}" class="btn btn-primary">Go test</a>
+    </div>
+  </div>
+</div>
+<app-quizzes-page></app-quizzes-page>

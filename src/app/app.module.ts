@@ -12,6 +12,8 @@ import { SafeHtmlPipePipe } from './pipes/safe-html-pipe.pipe';
 import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.component';
 import { ManagerQuestionComponent } from './pages/admin/manager-question/manager-question.component';
 import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
+import { QuestionPageComponent } from './pages/question-page/question-page.component';
+import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +25,8 @@ import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager
         SafeHtmlPipePipe,
         ManagerQuestionComponent,
         ManagerCustomerComponent,
+        QuestionPageComponent,
+        QuizzesPageComponent,
     ],
     imports: [
         BrowserModule,
@@ -30,7 +34,13 @@ import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager
         FormsModule,
         HttpClientModule
     ],
-    providers: [],
+    providers: [{
+        provide: 'SocialAuthServiceConfig',
+        useValue: {
+            autoLogin: false,
+
+        }
+    }],
     bootstrap: [AppComponent]
 })
 export class AppModule { }
