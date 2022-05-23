@@ -6,25 +6,23 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LayoutPublicComponent } from './components/layouts/layout-public/layout-public.component';
-import { ProductsComponent } from './pages/products/products.component';
-import { HomeComponent } from './pages/home/home.component';
-import { AdminComponent } from './components/layouts/admin/admin.component';
-import { HeaderComponent } from './components/header/header.component';
-import { DetailsComponent } from './pages/details/details.component';
-import { ProductItemComponent } from './components/product-item/product-item.component';
-import { AddProductComponent } from './components/add-product/add-product.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { DashboardComponent } from './components/Layouts/dashboard/dashboard.component';
+import { SafeHtmlPipePipe } from './pipes/safe-html-pipe.pipe';
+import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.component';
+import { ManagerQuestionComponent } from './pages/admin/manager-question/manager-question.component';
+import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         LayoutPublicComponent,
-        ProductsComponent,
-        HomeComponent,
-        AdminComponent,
-        HeaderComponent,
-        DetailsComponent,
-        ProductItemComponent,
-        AddProductComponent,
+        HomePageComponent,
+        DashboardComponent,
+        DashboardComponentPage,
+        SafeHtmlPipePipe,
+        ManagerQuestionComponent,
+        ManagerCustomerComponent,
     ],
     imports: [
         BrowserModule,

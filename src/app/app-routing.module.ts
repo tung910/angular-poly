@@ -1,19 +1,33 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './components/Layouts/dashboard/dashboard.component';
 import { LayoutPublicComponent } from './components/layouts/layout-public/layout-public.component';
-import { DetailsComponent } from './pages/details/details.component';
-import { HomeComponent } from './pages/home/home.component';
-import { ProductsComponent } from './pages/products/products.component';
+import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.component';
+import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
+import { ManagerQuestionComponent } from './pages/admin/manager-question/manager-question.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 const routes: Routes = [
     {
         path: '', component: LayoutPublicComponent, children: [
-            { path: '', component: HomeComponent },
-            { path: 'products', component: ProductsComponent, },
-            { path: 'details/:id', component: DetailsComponent, },
-            { path: 'products/:id', component: DetailsComponent }
-        ]
+            { path: '', component: HomePageComponent }
+        ],
+
     },
+    {
+        path: 'admin', component: DashboardComponent, children: [
+            {
+                path: '', component: DashboardComponentPage
+            },
+            {
+                path: 'questions', component: ManagerQuestionComponent
+            },
+            {
+                path: 'customers', component: ManagerCustomerComponent
+            },
+
+        ]
+    }
 
 ];
 
