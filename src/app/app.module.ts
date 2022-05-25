@@ -16,31 +16,27 @@ import { QuestionPageComponent } from './pages/question-page/question-page.compo
 import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.component';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        LayoutPublicComponent,
-        HomePageComponent,
-        DashboardComponent,
-        DashboardComponentPage,
-        SafeHtmlPipePipe,
-        ManagerQuestionComponent,
-        ManagerCustomerComponent,
-        QuestionPageComponent,
-        QuizzesPageComponent,
-    ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule
-    ],
-    providers: [{
-        provide: 'SocialAuthServiceConfig',
-        useValue: {
-            autoLogin: false,
-
-        }
-    }],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    LayoutPublicComponent,
+    DashboardComponent,
+    HomePageComponent,
+    DashboardComponentPage,
+    SafeHtmlPipePipe,
+    ManagerQuestionComponent,
+    ManagerCustomerComponent,
+    QuestionPageComponent,
+    QuizzesPageComponent,
+  ],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [
+    {
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+      },
+    },
+  ],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
