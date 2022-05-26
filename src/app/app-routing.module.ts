@@ -4,7 +4,8 @@ import { DashboardComponent } from './components/Layouts/dashboard/dashboard.com
 import { LayoutPublicComponent } from './components/layouts/layout-public/layout-public.component';
 import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.component';
 import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
-import { ManagerQuestionComponent } from './pages/admin/manager-question/manager-question.component';
+import { AddQuestionComponent } from './pages/admin/questions/add-question/add-question.component';
+import { ManagerQuestionComponent } from './pages/admin/questions/manager-question/manager-question.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { QuestionPageComponent } from './pages/question-page/question-page.component';
 import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.component';
@@ -37,7 +38,10 @@ const routes: Routes = [
       },
       {
         path: 'questions',
-        component: ManagerQuestionComponent,
+        children: [
+          { path: '', component: ManagerQuestionComponent },
+          { path: 'add-question', component: AddQuestionComponent },
+        ],
       },
       {
         path: 'customers',

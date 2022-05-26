@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-manager-question',
   templateUrl: './manager-question.component.html',
-  styleUrls: ['./manager-question.component.scss']
+  styleUrls: ['./manager-question.component.scss'],
 })
 export class ManagerQuestionComponent implements OnInit {
+  answers = [{}];
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }
