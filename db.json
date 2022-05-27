@@ -129,16 +129,16 @@
       "slug": "chemistry-hoa-hoc"
     },
     {
-      "id": 3,
       "name": "A Lorem ipsum dolor sit amet",
       "icon": "./assets/images/chemistry.png",
-      "slug": "a-lorem-ipsum-dolor-sit-amet"
+      "slug": "a-lorem-ipsum-dolor-sit-amet",
+      "id": 4
     },
     {
-      "id": 5,
-      "name": "B Lorem ipsum dolor sit amet",
-      "icon": "./assets/images/chemistry.png",
-      "slug": "b-lorem-ipsum-dolor-sit-amet"
+      "name": "Abc 2",
+      "icon": "C:\\fakepath\\localhost_3000_.png",
+      "slug": "abc-11653624196124",
+      "id": 5
     }
   ]
 }

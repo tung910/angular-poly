@@ -62,14 +62,10 @@
               <!-- end of quiz_card_area -->
             </div>
             <div *ngIf="answers.length < 5">
-              <div class="col-sm-3">
+              <div class="col-sm-3" (click)="addBox()">
                 <div class="quiz_card_area">
-                  <div class="quiz_card_content">
-                    <div style="width: inherit; height: inherit; padding: 10px">
-                      <button (click)="addBox()" class="btn btn-primary">
-                        +
-                      </button>
-                    </div>
+                  <div class="btn btn-primary">
+                    <div style="font-size: 5rem">+</div>
                   </div>
                   <!-- end of quiz_card_content -->
                 </div>

@@ -6,7 +6,10 @@ import { NzInputModule } from 'ng-zorro-antd/input';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
+import { NzTableModule } from 'ng-zorro-antd/table';
 import en from '@angular/common/locales/en';
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +24,7 @@ import { QuestionPageComponent } from './pages/question-page/question-page.compo
 import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.component';
 import { AddQuestionComponent } from './pages/admin/questions/add-question/add-question.component';
 import { ManagerQuestionComponent } from './pages/admin/questions/manager-question/manager-question.component';
+import { SlugifyPipe } from './pipes/slugify.pipe';
 
 registerLocaleData(en);
 
@@ -37,6 +41,7 @@ registerLocaleData(en);
     QuizzesPageComponent,
     AddQuestionComponent,
     ManagerQuestionComponent,
+    SlugifyPipe,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +50,9 @@ registerLocaleData(en);
     HttpClientModule,
     BrowserAnimationsModule,
     NzInputModule,
+    NzTableModule,
+    NzPopconfirmModule,
+    NzModalModule,
   ],
   providers: [
     {
