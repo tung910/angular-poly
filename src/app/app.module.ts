@@ -7,8 +7,10 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import { NzTableModule } from 'ng-zorro-antd/table';
+import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import en from '@angular/common/locales/en';
 import { NzModalModule } from 'ng-zorro-antd/modal';
+import { NzListModule } from 'ng-zorro-antd/list';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -25,6 +27,7 @@ import { QuizzesPageComponent } from './pages/quizzes-page/quizzes-page.componen
 import { AddQuestionComponent } from './pages/admin/questions/add-question/add-question.component';
 import { ManagerQuestionComponent } from './pages/admin/questions/manager-question/manager-question.component';
 import { SlugifyPipe } from './pipes/slugify.pipe';
+import { ListQuestionComponent } from './pages/admin/questions/list-question/list-question.component';
 
 registerLocaleData(en);
 
@@ -42,6 +45,7 @@ registerLocaleData(en);
     AddQuestionComponent,
     ManagerQuestionComponent,
     SlugifyPipe,
+    ListQuestionComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,6 +57,8 @@ registerLocaleData(en);
     NzTableModule,
     NzPopconfirmModule,
     NzModalModule,
+    NzCollapseModule,
+    NzListModule,
   ],
   providers: [
     {

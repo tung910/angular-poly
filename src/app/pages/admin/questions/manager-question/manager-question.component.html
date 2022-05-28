@@ -1,6 +1,4 @@
 <div class="container my-4">
-  <!-- <a routerLink="add-question" class="btn btn-primary">Add question</a> -->
-
   <form #addSubject="ngForm">
     <nz-modal
       [(nzVisible)]="isVisible"
@@ -47,7 +45,9 @@
           <th nzWidth="25%">Tieu de</th>
           <th nzWidth="15%">Avatar</th>
           <th nzWidth="40%">Cau hoi</th>
+          <th nzWidth="40%">Thanh vien hoc</th>
           <th>Action</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -55,7 +55,8 @@
           <ng-container *ngIf="!editCache[data.id].edit; else editTemplate">
             <td>{{ data.name }}</td>
             <td>{{ data.icon }}</td>
-            <td>10</td>
+            <td>0</td>
+            <td>0</td>
             <td>
               <a (click)="startEdit(data.id)">Edit</a> --
               <a
@@ -66,6 +67,7 @@
                 >Delete</a
               >
             </td>
+            <td><a routerLink="list-question/{{ data.id }}">Chi tiet</a></td>
           </ng-container>
           <ng-template #editTemplate>
             <td>

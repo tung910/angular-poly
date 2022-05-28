@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import Isubject from 'src/app/models/subject';
-import { SlugifyPipe } from 'src/app/pipes/slugify.pipe';
 import { SubjectsService } from 'src/app/services/subjects.service';
 
 @Component({
@@ -11,9 +10,7 @@ import { SubjectsService } from 'src/app/services/subjects.service';
 })
 export class ManagerQuestionComponent implements OnInit {
   subjects: Array<Isubject> = [];
-  constructor(
-    private subjectsService: SubjectsService // private slugifyPipe: SlugifyPipe
-  ) {}
+  constructor(private subjectsService: SubjectsService) {}
   editCache: /* { [key: string]: { edit: boolean; data: ItemData } } */ any =
     {};
   isVisible = false;
@@ -21,7 +18,6 @@ export class ManagerQuestionComponent implements OnInit {
   startEdit(id: number): void {
     this.editCache[id].edit = true;
   }
-
   cancelEdit(id: number): void {
     const index = this.subjects.findIndex((item: any) => item.id == id);
     this.editCache[id] = {

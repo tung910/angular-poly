@@ -5,6 +5,7 @@ import { LayoutPublicComponent } from './components/layouts/layout-public/layout
 import { DashboardComponentPage } from './pages/admin/dashboard/dashboard.component';
 import { ManagerCustomerComponent } from './pages/admin/manager-customer/manager-customer.component';
 import { AddQuestionComponent } from './pages/admin/questions/add-question/add-question.component';
+import { ListQuestionComponent } from './pages/admin/questions/list-question/list-question.component';
 import { ManagerQuestionComponent } from './pages/admin/questions/manager-question/manager-question.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { QuestionPageComponent } from './pages/question-page/question-page.component';
@@ -40,7 +41,8 @@ const routes: Routes = [
         path: 'questions',
         children: [
           { path: '', component: ManagerQuestionComponent },
-          { path: 'add-question', component: AddQuestionComponent },
+          { path: 'list-question/:id', component: ListQuestionComponent },
+          { path: 'add-question/:id', component: AddQuestionComponent },
         ],
       },
       {
