@@ -26,11 +26,17 @@
       [nzDisabled]="panel.disabled"
     >
       <ul nz-list [nzDataSource]="panel.answers" nzBordered nzSize="large">
-        <li nz-list-item *ngFor="let item of panel.answers" nzNoFlex>
+        <li
+          nz-list-item
+          *ngFor="let item of panel.answers; index as i; first as isFirst"
+          nzNoFlex
+        >
           <ul nz-list-item-actions>
             <nz-list-item-action>
-              <a>edit</a>
-            </nz-list-item-action>
+              <a routerLink="/admin/questions/edit-question/{{ panel.id }}"
+                >edit</a
+              ></nz-list-item-action
+            >
           </ul>
           {{ item.text }} -- {{ item.status ? "dung" : "sai" }}
         </li>

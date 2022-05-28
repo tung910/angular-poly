@@ -23,7 +23,6 @@ export class ListQuestionComponent implements OnInit {
     }
     this.questionsService.getQuestion(+id).subscribe((data) => {
       Object.assign(this.question, data);
-      console.log(this.question);
       return;
     });
   }

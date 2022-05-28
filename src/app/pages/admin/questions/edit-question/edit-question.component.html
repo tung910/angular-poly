@@ -1,0 +1,89 @@
+<div class="container my-4">
+  <form (ngSubmit)="handleOnSubmit()" #formEdit="ngForm">
+    <div class="row mb-3">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a routerLink="/admin/questions" class="text-dark">Questions</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a (click)="handleBack()" class="text-dark">List question</a>
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Edit question
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <button class="btn btn-primary">Publish</button>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col">
+        <div class="form-floating">
+          <textarea
+            class="form-control"
+            placeholder="Leave a comment here"
+            style="min-height: 200px"
+            [(ngModel)]="question.quiz"
+            name="quiz"
+          ></textarea>
+          <label for="floatingTextarea">Please add question ... 🤔?</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="quiz_content_area">
+          <div class="row">
+            <div class="col-sm-3" *ngFor="let item of question.answers; let i">
+              <div class="quiz_card_area">
+                <input
+                  class="quiz_checkbox"
+                  type="radio"
+                  id="{{ item.id }}"
+                  name="{{ item.id }}"
+                  [value]="true"
+                  [(ngModel)]="item.status"
+                />
+                <div class="single_quiz_card">
+                  <div class="quiz_card_content">
+                    <textarea
+                      nz-input
+                      [(ngModel)]="item.text"
+                      name="{{ item.id }}"
+                      style="width: inherit; height: inherit; padding: 10px"
+                    >
+                    {{ item.text }}
+                    </textarea>
+                    <!-- [(ngModel)]="dasd" -->
+                  </div>
+                  <!-- end of quiz_card_content -->
+                </div>
+                <!-- end of single_quiz_card -->
+              </div>
+              <!-- end of quiz_card_area -->
+            </div>
+            <div *ngIf="answers.length < 5">
+              <div class="col-sm-3" (click)="addBox()">
+                <div class="quiz_card_area">
+                  <div class="btn btn-primary">
+                    <div style="font-size: 5rem">+</div>
+                  </div>
+                  <!-- end of quiz_card_content -->
+                </div>
+                <!-- end of single_quiz_card -->
+              </div>
+            </div>
+            <!-- end of quiz_card_area -->
+          </div>
+        </div>
+        <!-- end of quiz_card_area -->
+      </div>
+      <!-- end of quiz_content_area -->
+    </div>
+  </form>
+  <!-- end of col12 -->
+</div>

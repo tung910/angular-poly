@@ -28,6 +28,7 @@ import { AddQuestionComponent } from './pages/admin/questions/add-question/add-q
 import { ManagerQuestionComponent } from './pages/admin/questions/manager-question/manager-question.component';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 import { ListQuestionComponent } from './pages/admin/questions/list-question/list-question.component';
+import { EditQuestionComponent } from './pages/admin/questions/edit-question/edit-question.component';
 
 registerLocaleData(en);
 
@@ -46,6 +47,7 @@ registerLocaleData(en);
     ManagerQuestionComponent,
     SlugifyPipe,
     ListQuestionComponent,
+    EditQuestionComponent,
   ],
   imports: [
     BrowserModule,

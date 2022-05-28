@@ -3,11 +3,11 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
 import { QuestionsService } from 'src/app/services/questions.service';
 import { Location } from '@angular/common';
 @Component({
-  selector: 'app-add-question',
-  templateUrl: './add-question.component.html',
-  styleUrls: ['./add-question.component.scss'],
+  selector: 'app-edit-question',
+  templateUrl: './edit-question.component.html',
+  styleUrls: ['./edit-question.component.scss'],
 })
-export class AddQuestionComponent implements OnInit {
+export class EditQuestionComponent implements OnInit {
   choice: boolean = false;
   choiceName: string = 'result';
   answers = [
