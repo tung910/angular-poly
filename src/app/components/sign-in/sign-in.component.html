@@ -1,0 +1,60 @@
+<div *ngIf="!isLogin">
+  <button
+    nz-button
+    nzType="primary"
+    class="btn btn-outline-primary mx-4"
+    (click)="showModal()"
+  >
+    <span>Log in</span>
+  </button>
+</div>
+<div *ngIf="isLogin">
+  {{ loggedInUser | json }}
+</div>
+<!-- Sign up -->
+<nz-modal
+  [(nzVisible)]="isVisible"
+  [nzOkLoading]="isOkLoading"
+  nzTitle="Login"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <div *nzModalContent>
+    <form
+      nz-form
+      [formGroup]="validateForm"
+      class="login-form content"
+      (ngSubmit)="submitForm()"
+    >
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your email!">
+          <nz-input-group nzPrefixIcon="user">
+            <input
+              type="email"
+              nz-input
+              formControlName="email"
+              placeholder="email"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group nzPrefixIcon="lock">
+            <input
+              type="password"
+              nz-input
+              formControlName="password"
+              placeholder="Password"
+            />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <div nz-row class="login-form-margin">
+        <div nz-col [nzSpan]="12">
+          <a class="login-form-forgot">Forgot password</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</nz-modal>
