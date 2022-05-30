@@ -1,0 +1,40 @@
+<form
+  class="d-flex"
+  role="search"
+  nz-dropdown
+  [nzDropdownMenu]="menu"
+  [nzClickHide]="false"
+  [(nzVisible)]="visible"
+  nzTrigger="hover"
+  #search="ngForm"
+  (ngSubmit)="handlerSearch(search)"
+  autocomplete="off"
+>
+  <input
+    class="form-control me-2"
+    type="search"
+    placeholder="Search"
+    aria-label="Search"
+    name="textSearch"
+    ngModel
+  />
+  <button class="btn btn-outline-success">Search</button>
+</form>
+<nz-dropdown-menu #menu="nzDropdownMenu">
+  <div *ngIf="data.length == 0; then emptyData; else dataSearch"></div>
+  <ng-template #emptyData>
+    <div nz-menu>
+      <nz-empty nzNotFoundImage="simple"></nz-empty>
+    </div>
+  </ng-template>
+  <ng-template #dataSearch>
+    <ul nz-menu>
+      <li nz-menu-item *ngFor="let item of data">
+        <a routerLink="/questions/{{ item.slug }}">{{ item.name }}</a>
+      </li>
+      <li nz-menu-item (click)="visible = false">
+        Clicking me will close the menu
+      </li>
+    </ul>
+  </ng-template>
+</nz-dropdown-menu>
