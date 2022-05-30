@@ -11,9 +11,14 @@ export class QuizzesPageComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const user = localStorage.getItem('user') || null;
+    if (user) {
+      return (this.players = JSON.parse(user).userName);
+    }
+  }
 
-  handePayler(name: NgForm) {
+  handlerPlayer(name: NgForm) {
     if (name.value && name.value != '') {
       this.players = name.value.userName;
     }

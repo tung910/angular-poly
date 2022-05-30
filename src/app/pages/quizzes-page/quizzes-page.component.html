@@ -1,26 +1,27 @@
-<div
-  class="d-flex justify-content-center align-items-center"
-  style="height: 50vh"
->
-  <form
-    style="min-width: 40%"
-    class="d-flex flex-column justify-content-center align-items-center"
-    #setNamePlayer="ngForm"
-    (submit)="handePayler(setNamePlayer)"
+<div *ngIf="players != null; then start; else setName"></div>
+<ng-template #setName>
+  <div
+    class="d-flex justify-content-center align-items-center"
+    style="height: 50vh"
   >
-    <div class="mb-3">
-      <input
-        type="text"
-        class="form-control form-control-lg"
-        placeholder="User name ..."
-        #userName
-        name="userName"
-        ngModel
-      />
-    </div>
-    <button type="submit" class="btn btn-primary">Start</button>
-  </form>
-</div>
-<div *ngIf="players != null">
-  {{ players | json }}
-</div>
+    <form
+      style="min-width: 40%"
+      class="d-flex flex-column justify-content-center align-items-center"
+      #setNamePlayer="ngForm"
+      (submit)="handlerPlayer(setNamePlayer)"
+    >
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control form-control-lg"
+          placeholder="User name ..."
+          #userName
+          name="userName"
+          ngModel
+        />
+      </div>
+      <button type="submit" class="btn btn-primary">Start</button>
+    </form>
+  </div>
+</ng-template>
+<ng-template #start>{{ players }} </ng-template>

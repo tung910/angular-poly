@@ -32,4 +32,7 @@ export class SubjectsService {
   deleteSubject(id: number) {
     return this.http.delete(`${environment.subject_api}/${id}`);
   }
+  searchText(text: string): Observable<Isubject[]> {
+    return this.http.get<Isubject[]>(`${environment.subject_api}?q=${text}`);
+  }
 }

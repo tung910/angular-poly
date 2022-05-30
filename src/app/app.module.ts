@@ -17,6 +17,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMessageModule } from 'ng-zorro-antd/message';
+import { NzMentionModule } from 'ng-zorro-antd/mention';
+import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -36,6 +38,7 @@ import { EditQuestionComponent } from './pages/admin/questions/edit-question/edi
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { BannerComponent } from './components/home/banner/banner.component';
+import { SearchComponent } from './components/search/search.component';
 
 registerLocaleData(en);
 
@@ -58,6 +61,7 @@ registerLocaleData(en);
     SignUpComponent,
     SignInComponent,
     BannerComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
@@ -76,6 +80,8 @@ registerLocaleData(en);
     NzDropDownModule,
     NzCarouselModule,
     NzMessageModule,
+    NzMentionModule,
+    NzEmptyModule,
   ],
   providers: [
     {

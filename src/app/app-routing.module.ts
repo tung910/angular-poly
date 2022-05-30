@@ -24,7 +24,11 @@ const routes: Routes = [
         path: 'questions',
         children: [
           { path: '', component: QuestionPageComponent },
-          { path: ':slug', component: QuizzesPageComponent },
+          {
+            path: ':slug',
+            component: QuizzesPageComponent,
+            canActivate: [AuthGuard],
+          },
         ],
       },
     ],
