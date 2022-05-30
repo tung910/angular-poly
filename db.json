@@ -285,5 +285,14 @@
       "member": 0,
       "totalQuestion": 10
     }
+  ],
+  "users": [
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$/OkA5/9pMlk4fpTWlAOBXu5OE1hNnnap/r04anqXIxKZ5xGreklG.",
+      "userName": "Thanh Tung",
+      "role": 1,
+      "id": 1
+    }
   ]
 }

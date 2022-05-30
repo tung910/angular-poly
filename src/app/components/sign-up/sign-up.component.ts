@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
       userName: [null, [Validators.required]],
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      //   remember: [true],
+      role: [0],
     });
   }
 

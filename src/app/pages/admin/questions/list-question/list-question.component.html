@@ -20,8 +20,8 @@
 
   <nz-collapse>
     <nz-collapse-panel
-      *ngFor="let panel of question.questions"
-      [nzHeader]="panel.quiz"
+      *ngFor="let panel of question.questions; index as i"
+      [nzHeader]="i + 1 + ' ' + panel.quiz"
       [nzActive]="true"
       [nzDisabled]="panel.disabled"
     >
@@ -38,7 +38,12 @@
               ></nz-list-item-action
             >
           </ul>
-          {{ item.text }} -- {{ item.status ? "dung" : "sai" }}
+          <div class="d-flex justify-content-start align-items-center">
+            <span class="{{ item.status ? 'green' : 'red' }}"> </span>
+            <span class="content">
+              {{ item.text }}
+            </span>
+          </div>
         </li>
       </ul>
     </nz-collapse-panel>

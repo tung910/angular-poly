@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NzInputModule } from 'ng-zorro-antd/input';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { en_US } from 'ng-zorro-antd/i18n';
@@ -11,8 +11,12 @@ import { NzCollapseModule } from 'ng-zorro-antd/collapse';
 import en from '@angular/common/locales/en';
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { NzListModule } from 'ng-zorro-antd/list';
+import { NzFormModule } from 'ng-zorro-antd/form';
 import { NzPopconfirmModule } from 'ng-zorro-antd/popconfirm';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzMessageModule } from 'ng-zorro-antd/message';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -29,6 +33,9 @@ import { ManagerQuestionComponent } from './pages/admin/questions/manager-questi
 import { SlugifyPipe } from './pipes/slugify.pipe';
 import { ListQuestionComponent } from './pages/admin/questions/list-question/list-question.component';
 import { EditQuestionComponent } from './pages/admin/questions/edit-question/edit-question.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { SignInComponent } from './components/sign-in/sign-in.component';
+import { BannerComponent } from './components/home/banner/banner.component';
 
 registerLocaleData(en);
 
@@ -48,11 +55,15 @@ registerLocaleData(en);
     SlugifyPipe,
     ListQuestionComponent,
     EditQuestionComponent,
+    SignUpComponent,
+    SignInComponent,
+    BannerComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
     NzInputModule,
@@ -61,6 +72,10 @@ registerLocaleData(en);
     NzModalModule,
     NzCollapseModule,
     NzListModule,
+    NzFormModule,
+    NzDropDownModule,
+    NzCarouselModule,
+    NzMessageModule,
   ],
   providers: [
     {

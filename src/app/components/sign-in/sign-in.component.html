@@ -1,16 +1,11 @@
-<div *ngIf="!isLogin">
-  <button
-    nz-button
-    nzType="primary"
-    class="btn btn-outline-primary mx-4"
-    (click)="showModal()"
-  >
-    <span>Log in</span>
-  </button>
-</div>
-<div *ngIf="isLogin">
-  {{ loggedInUser | json }}
-</div>
+<button
+  nz-button
+  nzType="primary"
+  class="btn btn-outline-primary mx-4"
+  (click)="showModal()"
+>
+  <span>Log in</span>
+</button>
 <!-- Sign up -->
 <nz-modal
   [(nzVisible)]="isVisible"

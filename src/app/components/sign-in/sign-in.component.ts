@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { UsersService } from 'src/app/services/users.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -8,17 +8,17 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sign-in.component.scss'],
 })
 export class SignInComponent implements OnInit {
+  @Output() isLogin = new EventEmitter<any>();
   isVisible = false;
   isOkLoading = false;
   loggedInUser = {};
-  isLogin = false;
   validateForm!: FormGroup;
 
   constructor(private fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      //   userName: [null, [Validators.required]],
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
       //   remember: [true],
@@ -28,9 +28,9 @@ export class SignInComponent implements OnInit {
   submitForm(): void {
     if (this.validateForm.valid) {
       this.usersService.signIn(this.validateForm.value).subscribe((data) => {
+        this.isLogin.emit(true);
         this.isVisible = false;
         this.isOkLoading = false;
-        this.isLogin = true;
       });
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
