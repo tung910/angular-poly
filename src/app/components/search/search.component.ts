@@ -16,10 +16,6 @@ export class SearchComponent implements OnInit {
   ngOnInit(): void {}
   handlerSearch(data: NgForm) {
     this.subjectsService.searchText(data.value.textSearch).subscribe((data) => {
-      console.log(
-        '🚀 => SearchComponent => this.subjectsService.searchText => data',
-        data
-      );
       return (this.data = data);
     });
   }

@@ -11,6 +11,11 @@ export class SignUpComponent implements OnInit {
   isVisible = false;
   isOkLoading = false;
   validateForm!: FormGroup;
+  messages = {
+    type: 'success',
+    message: '',
+    visible: false,
+  };
 
   constructor(private fb: FormBuilder, private usersService: UsersService) {}
 
@@ -25,10 +30,20 @@ export class SignUpComponent implements OnInit {
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      this.usersService.signUp(this.validateForm.value).subscribe((data) => {
-        this.isVisible = false;
-        this.isOkLoading = false;
-      });
+      this.usersService.signUp(this.validateForm.value).subscribe(
+        (data) => {
+          this.isVisible = false;
+          this.isOkLoading = false;
+        },
+        (error) => {
+          console.log('🚀 => SignUpComponent => submitForm => error', error);
+          return Object.assign(this.messages, {
+            type: 'error',
+            message: error.error,
+            visible: true,
+          });
+        }
+      );
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {

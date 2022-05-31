@@ -18,6 +18,7 @@ import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzMentionModule } from 'ng-zorro-antd/mention';
+import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -82,6 +83,7 @@ registerLocaleData(en);
     NzMessageModule,
     NzMentionModule,
     NzEmptyModule,
+    NzAlertModule,
   ],
   providers: [
     {
