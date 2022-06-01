@@ -36,7 +36,6 @@ export class SignUpComponent implements OnInit {
           this.isOkLoading = false;
         },
         (error) => {
-          console.log('🚀 => SignUpComponent => submitForm => error', error);
           return Object.assign(this.messages, {
             type: 'error',
             message: error.error,

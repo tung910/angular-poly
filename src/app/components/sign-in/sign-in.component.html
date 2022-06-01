@@ -22,6 +22,18 @@
       (ngSubmit)="submitForm()"
     >
       <nz-form-item>
+        <div *ngIf="messages.visible; then showMessageError"></div>
+        <ng-template #showMessageError>
+          <nz-alert
+            nzType="error"
+            [nzMessage]="messages.message"
+            nzShowIcon
+            style="width: 100%"
+            nzCloseable
+          ></nz-alert>
+        </ng-template>
+      </nz-form-item>
+      <nz-form-item>
         <nz-form-control nzErrorTip="Please input your email!">
           <nz-input-group nzPrefixIcon="user">
             <input

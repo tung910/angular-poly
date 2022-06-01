@@ -32,9 +32,6 @@
       <li nz-menu-item *ngFor="let item of data">
         <a routerLink="/questions/{{ item.slug }}">{{ item.name }}</a>
       </li>
-      <li nz-menu-item (click)="visible = false">
-        Clicking me will close the menu
-      </li>
     </ul>
   </ng-template>
 </nz-dropdown-menu>

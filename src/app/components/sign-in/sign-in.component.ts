@@ -13,25 +13,37 @@ export class SignInComponent implements OnInit {
   isOkLoading = false;
   loggedInUser = {};
   validateForm!: FormGroup;
+  messages = {
+    type: 'success',
+    message: '',
+    visible: false,
+  };
 
   constructor(private fb: FormBuilder, private usersService: UsersService) {}
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      //   userName: [null, [Validators.required]],
       email: [null, [Validators.required]],
       password: [null, [Validators.required]],
-      //   remember: [true],
     });
   }
 
   submitForm(): void {
     if (this.validateForm.valid) {
-      this.usersService.signIn(this.validateForm.value).subscribe((data) => {
-        this.isLogin.emit(true);
-        this.isVisible = false;
-        this.isOkLoading = false;
-      });
+      this.usersService.signIn(this.validateForm.value).subscribe(
+        (data) => {
+          this.isLogin.emit(true);
+          this.isVisible = false;
+          this.isOkLoading = false;
+        },
+        (error) => {
+          return Object.assign(this.messages, {
+            type: 'error',
+            message: error.error,
+            visible: true,
+          });
+        }
+      );
     } else {
       Object.values(this.validateForm.controls).forEach((control) => {
         if (control.invalid) {
