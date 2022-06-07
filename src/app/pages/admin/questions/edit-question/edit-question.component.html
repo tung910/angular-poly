@@ -58,24 +58,13 @@
                     >
                     {{ item.text }}
                     </textarea>
-                    <!-- [(ngModel)]="dasd" -->
+                    <!-- [(ngModel)]=" " -->
                   </div>
                   <!-- end of quiz_card_content -->
                 </div>
                 <!-- end of single_quiz_card -->
               </div>
               <!-- end of quiz_card_area -->
-            </div>
-            <div *ngIf="answers.length < 5">
-              <div class="col-sm-3" (click)="addBox()">
-                <div class="quiz_card_area">
-                  <div class="btn btn-primary">
-                    <div style="font-size: 5rem">+</div>
-                  </div>
-                  <!-- end of quiz_card_content -->
-                </div>
-                <!-- end of single_quiz_card -->
-              </div>
             </div>
             <!-- end of quiz_card_area -->
           </div>

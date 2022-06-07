@@ -10,23 +10,7 @@ import { Location } from '@angular/common';
 export class EditQuestionComponent implements OnInit {
   choice: boolean = false;
   choiceName: string = 'result';
-  answers = [
-    {
-      id: this.getRandomId(),
-      text: '',
-      status: false,
-    },
-    {
-      id: this.getRandomId(),
-      text: '',
-      status: false,
-    },
-    {
-      id: this.getRandomId(),
-      text: '',
-      status: false,
-    },
-  ];
+  answers = [];
 
   question: any = {
     subjectId: 1,
@@ -46,21 +30,16 @@ export class EditQuestionComponent implements OnInit {
 
   ngOnInit(): void {
     const idSubject = this.activeRouter.snapshot.paramMap.get('id') || 0;
-    this.question.subjectId = +idSubject;
-  }
-  getRandomId() {
-    return Math.floor(Math.random() * 99 + 1);
-  }
-  addBox() {
-    this.answers.push({
-      id: this.getRandomId(),
-      text: '',
-      status: false,
+    if (idSubject && +idSubject == 0) {
+      return this.location.back();
+    }
+    this.questionsService.getQuestion(+idSubject).subscribe((data) => {
+      Object.assign(this.question, data);
     });
   }
   handleOnSubmit() {
     this.questionsService
-      .create(this.question)
+      .updateData(this.question)
       .subscribe((data) => this.handleBack());
   }
 }

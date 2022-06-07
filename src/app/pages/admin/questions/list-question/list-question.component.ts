@@ -12,6 +12,7 @@ export class ListQuestionComponent implements OnInit {
     active: true,
     disabled: false,
   };
+  subjectId: any;
   constructor(
     private router: ActivatedRoute,
     private questionsService: QuestionsService,
@@ -21,9 +22,10 @@ export class ListQuestionComponent implements OnInit {
   ngOnInit(): void {
     const id = this.router.snapshot.paramMap.get('id') || 0;
     if (id == 0) {
-      // return router.
+      return;
     }
-    this.questionsService.getQuestion(+id).subscribe((data) => {
+    this.subjectId = id;
+    this.questionsService.getQuestionBySubject(+id).subscribe((data) => {
       Object.assign(this.question, data);
       return;
     });

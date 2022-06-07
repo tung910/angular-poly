@@ -10,7 +10,13 @@ export class QuestionsService {
   create(data: any) {
     return this.http.post(environment.question_api, data);
   }
+  updateData(data: any) {
+    return this.http.patch(`${environment.question_api}/${data.id}`, data);
+  }
   getQuestion(id: number) {
+    return this.http.get(`${environment.question_api}/${id}`);
+  }
+  getQuestionBySubject(id: number) {
     return this.http.get(`${environment.subject_api}/${id}?_embed=questions`);
   }
 }
