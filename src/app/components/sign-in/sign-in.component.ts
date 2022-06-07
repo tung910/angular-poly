@@ -31,7 +31,7 @@ export class SignInComponent implements OnInit {
   submitForm(): void {
     if (this.validateForm.valid) {
       this.usersService.signIn(this.validateForm.value).subscribe(
-        (data) => {
+        () => {
           this.isLogin.emit(true);
           this.isVisible = false;
           this.isOkLoading = false;

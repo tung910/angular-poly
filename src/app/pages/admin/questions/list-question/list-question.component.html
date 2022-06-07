@@ -24,6 +24,7 @@
       [nzHeader]="i + 1 + ' ' + panel.quiz"
       [nzActive]="true"
       [nzDisabled]="panel.disabled"
+      [nzExtra]="extraLS"
     >
       <ul nz-list [nzDataSource]="panel.answers" nzBordered nzSize="large">
         <li
@@ -33,10 +34,13 @@
         >
           <ul nz-list-item-actions>
             <nz-list-item-action>
-              <a routerLink="/admin/questions/edit-question/{{ panel.id }}"
-                >edit</a
-              ></nz-list-item-action
-            >
+              <a
+                routerLink="/admin/questions/edit-question/{{ panel.id }}"
+                class="mx-4"
+              >
+                <i nz-icon nzType="edit" nzTheme="outline"></i>
+              </a>
+            </nz-list-item-action>
           </ul>
           <div class="d-flex justify-content-start align-items-center">
             <span class="{{ item.status ? 'green' : 'red' }}"> </span>
@@ -49,3 +53,21 @@
     </nz-collapse-panel>
   </nz-collapse>
 </div>
+<ng-template #extraLS>
+  <a
+    nz-popconfirm
+    nzPopconfirmTitle="Are you sure?"
+    nzOkText="ok"
+    nzCancelText="cancel"
+    (nzOnConfirm)="confirm()"
+    (nzOnCancel)="cancel()"
+    nzPopconfirmPlacement="topRight"
+    (click)="$event.stopPropagation()"
+  >
+    <i nz-icon nzType="delete" nzTheme="outline" style="color: #ff0000"></i>
+  </a>
+
+  <!-- <a (click)="$event.stopPropagation()" class="mx-4">
+    <i nz-icon nzType="edit" nzTheme="outline"></i>
+  </a> -->
+</ng-template>

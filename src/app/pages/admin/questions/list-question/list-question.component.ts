@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { NzMessageService } from 'ng-zorro-antd/message';
 import { QuestionsService } from 'src/app/services/questions.service';
 @Component({
   selector: 'app-list-question',
@@ -13,7 +14,8 @@ export class ListQuestionComponent implements OnInit {
   };
   constructor(
     private router: ActivatedRoute,
-    private questionsService: QuestionsService
+    private questionsService: QuestionsService,
+    private nzMessageService: NzMessageService
   ) {}
 
   ngOnInit(): void {
@@ -25,5 +27,12 @@ export class ListQuestionComponent implements OnInit {
       Object.assign(this.question, data);
       return;
     });
+  }
+  cancel(): void {
+    this.nzMessageService.info('click cancel');
+  }
+
+  confirm(): void {
+    this.nzMessageService.info('click confirm');
   }
 }

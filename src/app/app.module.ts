@@ -20,6 +20,7 @@ import { NzMessageModule } from 'ng-zorro-antd/message';
 import { NzMentionModule } from 'ng-zorro-antd/mention';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
+import { NzIconModule } from 'ng-zorro-antd/icon';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -84,6 +85,7 @@ registerLocaleData(en);
     NzMentionModule,
     NzEmptyModule,
     NzAlertModule,
+    NzIconModule,
   ],
   providers: [
     {

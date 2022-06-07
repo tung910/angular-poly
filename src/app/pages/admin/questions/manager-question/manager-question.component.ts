@@ -11,8 +11,7 @@ import { SubjectsService } from 'src/app/services/subjects.service';
 export class ManagerQuestionComponent implements OnInit {
   subjects: Array<Isubject> = [];
   constructor(private subjectsService: SubjectsService) {}
-  editCache: /* { [key: string]: { edit: boolean; data: ItemData } } */ any =
-    {};
+  editCache: { [key: string]: { edit: boolean; data: any } } = {};
   isVisible = false;
 
   startEdit(id: number): void {
@@ -45,32 +44,12 @@ export class ManagerQuestionComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // const data = [];
-    // for (let i = 0; i < 100; i++) {
-    //   data.push({
-    //     id: i,
-    //     name: ` `,
-    //     icon: ' ',
-    //     slug: ` `,
-    //   });
-    // }
     this.subjectsService.getSubject().subscribe((data) => {
       this.subjects = data;
       this.updateEditCache();
     });
   }
-  addRow(): void {
-    // this.subjects = [
-    //   ...this.subjects,
-    //   {
-    //     id: this.subjects.length + 1,
-    //     name: `Edrward  ${this.subjects.length + 1}`,
-    //     icon: ' ',
-    //     slug: `London Park no.  ${this.subjects.length + 1}`,
-    //   },
-    // ];
-    // this.updateEditCache();
-  }
+  addRow(): void {}
   startDelete(id: number) {
     this.subjects = this.subjects.filter((d: any) => d.id != id);
     this.subjectsService.deleteSubject(id).subscribe();
@@ -89,7 +68,9 @@ export class ManagerQuestionComponent implements OnInit {
       .replace(/-+$/, ''); // Trim - from end of text
   }
   handleOk(formData: NgForm): void {
-    console.log('Button ok clicked!');
+    if (!formData.valid) {
+      return;
+    }
     const data: any = {
       name: formData.value.titleSubject,
       icon: formData.value.avatar,
@@ -102,8 +83,6 @@ export class ManagerQuestionComponent implements OnInit {
   }
 
   handleCancel(): void {
-    console.log('Button cancel clicked!');
-
     this.isVisible = false;
   }
 }

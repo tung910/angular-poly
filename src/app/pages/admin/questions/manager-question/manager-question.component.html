@@ -2,7 +2,7 @@
   <form #addSubject="ngForm">
     <nz-modal
       [(nzVisible)]="isVisible"
-      nzTitle="The first Modal"
+      nzTitle="Add subject"
       (nzOnCancel)="handleCancel()"
       (nzOnOk)="handleOk(addSubject)"
     >
@@ -10,6 +10,7 @@
         <div class="form-group">
           <label>Title</label>
           <input
+            required
             type="text"
             class="form-control"
             name="titleSubject"
@@ -25,6 +26,7 @@
             name="avatar"
             #avatar="ngModel"
             ngModel
+            required
           />
         </div>
       </ng-container>
