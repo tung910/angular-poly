@@ -48,6 +48,7 @@ export class SignUpComponent implements OnInit {
         if (control.invalid) {
           control.markAsDirty();
           control.updateValueAndValidity({ onlySelf: true });
+          this.isOkLoading = false;
         }
       });
     }

@@ -10,6 +10,10 @@ export class QuestionsService {
   create(data: any) {
     return this.http.post(environment.question_api, data);
   }
+  remove(id: string) {
+    return this.http.delete(`${environment.question_api}/${id}`);
+  }
+
   updateData(data: any) {
     return this.http.patch(`${environment.question_api}/${data.id}`, data);
   }

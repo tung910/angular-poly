@@ -30,11 +30,14 @@ export class ListQuestionComponent implements OnInit {
       return;
     });
   }
-  cancel(): void {
-    this.nzMessageService.info('click cancel');
-  }
 
-  confirm(): void {
-    this.nzMessageService.info('click confirm');
+  confirm(id: string): void {
+    this.questionsService.remove(id).subscribe(
+      () => {
+        this.nzMessageService.success('Xoa thanh cong');
+        this.ngOnInit();
+      },
+      () => this.nzMessageService.error('Khong the xoa!')
+    );
   }
 }
