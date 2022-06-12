@@ -21,6 +21,7 @@ import { NzMentionModule } from 'ng-zorro-antd/mention';
 import { NzAlertModule } from 'ng-zorro-antd/alert';
 import { NzEmptyModule } from 'ng-zorro-antd/empty';
 import { NzIconModule } from 'ng-zorro-antd/icon';
+import { NzLayoutModule } from 'ng-zorro-antd/layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -41,6 +42,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { SignInComponent } from './components/sign-in/sign-in.component';
 import { BannerComponent } from './components/home/banner/banner.component';
 import { SearchComponent } from './components/search/search.component';
+import { BackgroundDirective } from './background.directive';
 
 registerLocaleData(en);
 
@@ -64,6 +66,7 @@ registerLocaleData(en);
     SignInComponent,
     BannerComponent,
     SearchComponent,
+    BackgroundDirective,
   ],
   imports: [
     BrowserModule,
@@ -86,6 +89,7 @@ registerLocaleData(en);
     NzEmptyModule,
     NzAlertModule,
     NzIconModule,
+    NzLayoutModule,
   ],
   providers: [
     {

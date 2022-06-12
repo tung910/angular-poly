@@ -17,7 +17,9 @@
     </div>
     <div class="row mb-3">
       <div class="col">
-        <button class="btn btn-primary">Publish</button>
+        <button class="btn btn-primary" [disabled]="!formAdd.valid">
+          Publish
+        </button>
       </div>
     </div>
     <div class="row mb-3">
@@ -29,8 +31,16 @@
             style="min-height: 200px"
             [(ngModel)]="question.quiz"
             name="quiz"
+            required
           ></textarea>
           <label for="floatingTextarea">Please add question ... 🤔?</label>
+        </div>
+        <div *ngIf="question.quiz.errors">
+          <div
+            *ngIf="question.quiz.errors?.['required'] && question.quiz.dirty || question.quiz.touched"
+          >
+            <div class="text-danger">Question is required</div>
+          </div>
         </div>
       </div>
     </div>

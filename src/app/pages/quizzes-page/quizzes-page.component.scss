@@ -1,0 +1,10 @@
+.box-result {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  label {
+    cursor: pointer;
+    position: absolute;
+    inset: 0;
+  }
+}
