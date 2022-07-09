@@ -1,0 +1,26 @@
+<p>{{ user$ | async | json }}</p>
+<form #formControl="ngForm" (ngSubmit)="handlerSubmit(formControl)">
+  <div class="field">
+    <label for="">Email</label>
+    <input
+      type="email"
+      placeholder="Email"
+      ngModel
+      #email="ngModel"
+      name="email"
+      class="field-input"
+    />
+  </div>
+  <div class="field">
+    <label for="">Password</label>
+    <input
+      type="password"
+      placeholder="Password"
+      ngModel
+      #password="ngModel"
+      name="password"
+      class="field-input"
+    />
+  </div>
+  <button>Login</button>
+</form>

@@ -1,0 +1,29 @@
+<p>book-feature works!</p>
+<ul>
+  <li *ngFor="let item of books$ | async">{{ item.name }}</li>
+</ul>
+<form #formControl="ngForm" (ngSubmit)="handlerSubmit(formControl)">
+  <div class="field">
+    <label for="">name</label>
+    <input
+      type="text"
+      placeholder="name"
+      ngModel
+      #name="ngModel"
+      name="name"
+      class="field-input"
+    />
+  </div>
+  <div class="field">
+    <label for="">img</label>
+    <input
+      type="text"
+      placeholder="img"
+      ngModel
+      #img="ngModel"
+      name="img"
+      class="field-input"
+    />
+  </div>
+  <button>Login</button>
+</form>
