@@ -1,0 +1,12 @@
+<div class="container">
+  <h2>Todo list</h2>
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+    <input type="text" name="job" ngModel #job="ngModel" #inputJob inputJob />
+    <button>Add job</button>
+  </form>
+  <ul>
+    <li *ngFor="let job of jobs$ | async">
+      {{ job.name }} <button (click)="onRemove(job)">X</button>
+    </li>
+  </ul>
+</div>

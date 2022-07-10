@@ -10,13 +10,14 @@ import { SharedModule } from '@/shared/shared.module';
 import { LoginComponent } from './features/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { loginReducer } from './features/login/login.reducer';
+import { FormDirective } from './components/form.directive';
 
 const store = {
   count: counterReducer,
   login: loginReducer,
 };
 @NgModule({
-  declarations: [AppComponent, LoginComponent],
+  declarations: [AppComponent, LoginComponent, FormDirective],
   imports: [
     BrowserModule,
     AppRoutingModule,

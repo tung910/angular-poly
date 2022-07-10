@@ -13,6 +13,7 @@ const routes: Routes = [
         (m) => m.BookFeatureModule
       ),
   },
+  { path: 'todo-feature', loadChildren: () => import('./features/todo-feature/todo-feature.module').then(m => m.TodoFeatureModule) },
 ];
 
 @NgModule({
